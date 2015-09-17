@@ -8,6 +8,7 @@ Activate the keyword ```oneliner``` and start typing for the search terms. Activ
 
 Keep in mind the search results are provided by the commandlinefu.com's API.
 
+![Search results](screenshots/results.png)
 
 ## Installation
 Download the [alfred-commandline-oneliners-workflow.alfredworkflow](alfred-commandline-oneliners-workflow.alfredworkflow?raw=true) and import to Alfred 2.
