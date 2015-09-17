@@ -89,7 +89,7 @@
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
-				<integer>102</integer>
+				<integer>4</integer>
 				<key>keyword</key>
 				<string>oneliner</string>
 				<key>queuedelaycustom</key>
@@ -101,13 +101,13 @@
 				<key>queuemode</key>
 				<integer>2</integer>
 				<key>runningsubtext</key>
-				<string>searching..</string>
+				<string>searching...</string>
 				<key>script</key>
 				<string>XDEBUG_CONFIG="idekey=vagrant" /usr/local/bin/php filter.php search "{query}"</string>
 				<key>subtext</key>
-				<string>search by content</string>
+				<string>type the search terms</string>
 				<key>title</key>
-				<string>Search for oneliners in commandlinefu.com</string>
+				<string>Search Oneliners in commandlinefu.com</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
