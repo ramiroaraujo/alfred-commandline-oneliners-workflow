@@ -27,7 +27,6 @@ if (count($search)) {
             'subtitle'     => $command->command,
             'icon'         => false,
             'valid'        => 'yes',
-            'autocomplete' => 'yes',
         ];
     }, $search);
 } else {
