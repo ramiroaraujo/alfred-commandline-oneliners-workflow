@@ -9,6 +9,9 @@
       "email": "rama.araujo@gmail.com"
     }
   ],
+  "config": {
+    "vendor-dir": "workflow/vendor"
+  },
   "require": {
     "skyzyx/alfred-workflow-builder": "1.*"
   },

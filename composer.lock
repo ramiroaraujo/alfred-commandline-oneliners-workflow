@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0146461316fc1b6b1b920a00398a902b",
+    "hash": "16565e7acec7bce3ec03190392f189b8",
     "packages": [
         {
             "name": "seld/jsonlint",
