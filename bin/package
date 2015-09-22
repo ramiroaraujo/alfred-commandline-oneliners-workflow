@@ -7,33 +7,29 @@ if [ ! -f workflow/info.plist ]; then
     exit 1;
 fi
 
-cd workflow
+composer install --no-dev --prefer-dist --optimize-autoloader
 
 # get bundle id
-bundle_id=`perl -0ne 'print $1 if /<key>bundleid<\/key>\s*<string>(.+?)<\/string>/ms' info.plist |  awk -F '.' '{print $NF}'`
-
-composer install --no-dev --prefer-dist --optimize-autoloader
+bundle_id=`perl -0ne 'print $1 if /<key>bundleid<\/key>\s*<string>(.+?)<\/string>/ms' workflow/info.plist |  awk -F '.' '{print $NF}'`
 
 tmp_dir="/tmp/${bundle_id}"
 
 rm -rf "${tmp_dir}" > /dev/null 2>&1
 
 mkdir "${tmp_dir}"
-cp -r . "${tmp_dir}/"
-rm -r "${tmp_dir}"/.gitignore
-rm "${tmp_dir}"/composer*
+cp -r workflow/ "${tmp_dir}/"
 
 # replace xdebug php calls with regular OSX php
 perl -pi -e 's#XDEBUG.+?/usr/local/bin/php#/usr/bin/php#' "${tmp_dir}/info.plist"
 
-cd ..
+# replace baseDir for composer classmap
+perl -pi -e 's/\$baseDir = dirname\(dirname\(\$vendorDir\)\);/\$baseDir = dirname(\$vendorDir);/' "${tmp_dir}/vendor/composer/autoload_classmap.php"
+perl -pi -e "s#\$baseDir \. '/workflow#\$baseDir . '#g" "${tmp_dir}/vendor/composer/autoload_classmap.php"
 
 workflow_dir=`pwd`
 rm ${bundle_id}.alfredworkflow > /dev/null 2>&1
 
 cd "$tmp_dir" && zip -r -q "${workflow_dir}"/${bundle_id}.alfredworkflow . && cd -
-
-cd workflow
 
 composer install --prefer-dist
 
